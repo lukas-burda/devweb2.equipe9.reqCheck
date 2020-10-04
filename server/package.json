@@ -1,0 +1,33 @@
+{
+  "name": "guestcheck",
+  "version": "1.0.0",
+  "description": "Gerenciamento de comandas",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukasferreira/devweb2.equipe9.guestCheck.git"
+  },
+  "keywords": [
+    "guestcheck",
+    "comanda",
+    "cliente"
+  ],
+  "author": "equipe-9-desWeb2",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukasferreira/devweb2.equipe9.guestCheck/issues"
+  },
+  "homepage": "https://github.com/lukasferreira/devweb2.equipe9.guestCheck#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

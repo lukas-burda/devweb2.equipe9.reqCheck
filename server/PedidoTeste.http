@@ -1,0 +1,22 @@
+###
+GET http://localhost:9090/01
+
+###
+POST http://localhost:9090/
+Content-Type: application/json
+
+{
+    "numeromesa": "01",
+    "status": "ocupada",
+    "produtos":
+    [
+        {
+            "codigo": "007",
+            "quantidade": 1
+        },
+        {
+            "codigo": "006",
+            "quantidade": 2
+        }
+    ]
+}
