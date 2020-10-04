@@ -1,0 +1,9 @@
+###
+POST http://localhost:9090/Produto
+Content-Type: application/json
+
+{
+    "codigo": "007",
+    "nome": "Amstel",
+    "valor": 3.10
+}

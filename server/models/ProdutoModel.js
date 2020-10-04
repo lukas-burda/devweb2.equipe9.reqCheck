@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> 05e377e0c9554f5b6aa7c57c20bb047647c87a8c
 const mongoose = require("mongoose");
 
 const Produto = new mongoose.Schema({
