@@ -1,9 +1,15 @@
 const mongoose = require("mongoose");
 
-const db = mongoose.connect("mongodb+srv://lukas:luk020900@desenvweb2.jm0tg.gcp.mongodb.net/desenvweb2?retryWrites=true&w=majority", {
+/*const db = mongoose.connect("mongodb+srv://lukas:luk020900@desenvweb2.jm0tg.gcp.mongodb.net/desenvweb2?retryWrites=true&w=majority", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+});*/
+
+const db = mongoose.connect("mongodb+srv://devwebII:devwebII@cluster0.qflpr.gcp.mongodb.net/Pedido?retryWrites=true&w=majority", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
+
 
 mongoose.connection.on("connected", () => {
     console.log("Connected with success");

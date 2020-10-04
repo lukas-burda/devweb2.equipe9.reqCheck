@@ -1,0 +1,45 @@
+###
+GET http://localhost:9090
+
+###
+GET http://localhost:9090/01
+
+###
+POST http://localhost:9090
+Content-Type: application/json
+
+{
+    "numeromesa": "01",
+    "status": "ocupada",
+    "produtos":
+    [
+        {
+            "codigo": "007",
+            "quantidade": 1,
+        },
+        {
+            "codigo": "006",
+            "quantidade": 2
+        }
+    ]
+}
+
+
+
+
+
+###
+GET http://localhost:9090/Produto
+
+
+
+###
+POST http://localhost:9090/Produto
+Content-Type: application/json
+
+{
+    "codigo": "007",
+    "nome": "Amstel",
+    "valor": 3.10
+}
+
