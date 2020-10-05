@@ -2,8 +2,9 @@ const express = require('express');
 const router = express.Router();
 const ProdutoController = require ("../controllers/ProdutoController.js");
 
-router.get("/:numeroMesa", PedidoController.GetByMesa);
-router.post("/", PedidoController.Insert);
-router.post("/Produto/", ProdutoController.Insert);
+router.get("/", ProdutoController.get);
+router.post("/", ProdutoController.Insert);
+router.put("/:id", ProdutoController.alterarProduto);
+router.delete("/:codigo", ProdutoController.deleteProduto);
 
 module.exports = router;
