@@ -72,6 +72,6 @@ nav li:hover::before {
 }
 
 nav li:hover::after {
-    background-color: white;
+    background-color: transparent;
     transform: translate(-1.5rem, -1.5rem);
 }
