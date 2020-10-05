@@ -1,1 +1,37 @@
-<p>list-produto works!</p>
+
+<div class="container">
+    <h2>Lista de produtos cadastrados</h2>
+    <p>Essa é a lista de produtos cadastrados no sistema:</p>            
+    <table class="table table-hover">
+      
+        <tr>
+          <th>Código do Produto</th>
+          <th>Nome do Produto</th>
+          <th>Valor do Produto</th>
+        </tr>
+      
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>Água</td>
+          <td>2.50</td>
+          <td><a routerLink="produto/alterar/{{1234}}">Alterar</a></td>
+          <td><a routerLink="produto/excluir/{{1234}}">Excluir</a></td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>Coquinha gelada</td>
+          <td>4.50</td>
+          <td><a routerLink="produto/alterar/{{1234}}">Alterar</a></td>
+          <td><a routerLink="produto/excluir/{{1234}}">Excluir</a></td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>Suco de laranja</td>
+          <td>4.00</td>
+          <td><a routerLink="produto/alterar/{{1234}}">Alterar</a></td>
+          <td><a routerLink="produto/excluir/{{1234}}">Excluir</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

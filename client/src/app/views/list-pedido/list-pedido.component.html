@@ -1,0 +1,34 @@
+
+<div class="container">
+    <h2>Lista de Pedidos</h2>
+    <p>Essa é a lista de pedidos:</p>            
+    <table class="table table-hover">
+      
+        <tr>
+          <th>Número da mesa</th>
+          <th>Status do pedido</th>
+          <th>Valor total</th>
+        </tr>
+      
+      <tbody>
+        <tr>
+          <td>001</td>
+          <td>LIVRE</td>
+          <td>55.50</td>
+          <td><a routerLink="produto/alterar/{{1234}}">Detalhes</a></td>
+        </tr>
+        <tr>
+          <td>002</td>
+          <td>OCUPADA</td>
+          <td>45.54</td>
+          <td><a routerLink="produto/alterar/{{1234}}">Detalhes</a></td>
+        </tr>
+        <tr>
+          <td>003</td>
+          <td>FINALIZADA</td>
+          <td>99.90</td>
+          <td><a routerLink="produto/alterar/{{1234}}">Detalhes</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

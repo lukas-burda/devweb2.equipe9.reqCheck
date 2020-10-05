@@ -8,12 +8,14 @@ import { IndexComponent } from './views/index/index.component';
 import { ListProdutoComponent } from './views/list-produto/list-produto.component';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ListPedidoComponent } from './views/list-pedido/list-pedido.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
-    ListProdutoComponent
+    ListProdutoComponent,
+    ListPedidoComponent
   ],
   imports: [
     BrowserModule,
