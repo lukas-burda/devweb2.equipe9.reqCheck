@@ -1,0 +1,53 @@
+###
+GET http://localhost:9090/pedido/01
+
+###
+POST http://localhost:9090/pedido
+Content-Type: application/json
+
+{
+    "numeromesa": "1",
+    "status": "ocupada",
+    "produtos":
+    [
+        {
+            "codigo": "001",
+            "nome": "Heineken",
+            "valor": 4.2,
+            "quantidade": 2
+        },
+        {
+            "codigo": "003",
+            "nome": "Coca-Cola",
+            "valor": 1.2,
+            "quantidade": 5
+        }
+    ]
+}
+
+###
+PUT http://localhost:9090/pedido
+Content-Type: application/json
+
+{
+    "numeromesa": "1",
+    "status": "ocupada",
+    "produtos":
+    [
+        {
+            "codigo": "001",
+            "nome": "Heineken",
+            "valor": 4.2,
+            "quantidade": 2
+        },
+        {
+            "codigo": "003",
+            "nome": "Coca-Cola",
+            "valor": 1.2,
+            "quantidade": 5
+        }
+    ]
+}
+
+###
+PUT http://localhost:9090/pedido/Finalizar/1

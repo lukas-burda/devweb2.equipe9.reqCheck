@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const produto = require("./ProdutoPedidoModel.js");
+const produto = require("./ProdutoModel.js").schema;
 
 const Pedido = new mongoose.Schema({
     numeromesa: {
