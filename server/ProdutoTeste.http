@@ -1,9 +1,28 @@
 ###
-POST http://localhost:9090/Produto
+GET http://localhost:9090/produto
+
+###
+GET http://localhost:9090/produto/002
+
+###
+POST http://localhost:9090/produto
 Content-Type: application/json
 
 {
-    "codigo": "007",
-    "nome": "Amstel",
-    "valor": 3.10
+    "codigo": "001",
+    "nome": "Heineken",
+    "valor": 4.2
 }
+
+###
+PUT http://localhost:9090/produto
+Content-Type: application/json
+
+{
+    "codigo": "002",
+    "nome": "Caipirinha",
+    "valor": 2.5
+}
+
+###
+DELETE http://localhost:9090/produto/001

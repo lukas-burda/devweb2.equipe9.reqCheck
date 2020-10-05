@@ -4,6 +4,9 @@ class ProdutoController {
     async get(req, res){
         res.status(201).json(await Produtos.find({}));
     }
+    async getByCodigo(req, res){
+        res.status(201).json(await Produtos.findOne({"codigo": req.params.codigo}));
+    }
 
     async Insert(req, res){
         var existsProduto = await Produtos.exists({"codigo": req.body.codigo});
@@ -16,8 +19,7 @@ class ProdutoController {
     }
 
     async alterarProduto(req, res){
-        res.status(200).json(await Produtos.updateOne({"codigo": req.body.codigo, "nome": req.body.nome,
-            "valor": req.body.valor}));
+        res.status(200).json(await Produtos.updateOne(req.body));
     }
 
     async deleteProduto(req, res){

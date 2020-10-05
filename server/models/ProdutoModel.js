@@ -14,6 +14,9 @@ const Produto = new mongoose.Schema({
     valor: {
         type: Number,
         required: [true, "O valor do produto deve ser informado."],
+    },
+    quantidade: {
+        type: Number
     }
 });
 
