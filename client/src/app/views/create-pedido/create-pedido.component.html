@@ -3,7 +3,6 @@
 <form class="form-horizontal">
     <fieldset>
     
-    <!-- Text input-->
     <div class="form-group">
       <label class="col-md-4 control-label" for="textinput">Mesa</label>  
       <div class="col-md-4">
@@ -12,16 +11,23 @@
       </div>
     </div>
     
-    <!-- Select Basic -->
     <div class="form-group">
-      <label class="col-md-4 control-label" for="selectbasic">Status</label>
-      <div class="col-md-4">
-        <select id="selectbasic" name="selectbasic" class="form-control">
-          <option value="ABERTA">ABERTA</option>
-          <option value="FECHADA">FECHADA</option>
-        </select>
+        <label class="col-md-4 control-label" for="status">Status</label>
+        <div class="col-md-4">
+        <div class="radio">
+          <label for="status-0">
+            <input type="radio" name="status" id="status-0" value="ABERTA" checked="checked">
+            ABERTA
+          </label>
+          </div>
+        <div class="radio">
+          <label for="status-1">
+            <input type="radio" name="status" id="status-1" value="FECHADA">
+            FECHADA
+          </label>
+          </div>
+        </div>
       </div>
-    </div>
 
     <div class="form-group">
         <label class="col-md-4 control-label" for="cadastrar-btn"></label>
