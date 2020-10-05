@@ -6,7 +6,7 @@ import { ListProdutoComponent } from './views/list-produto/list-produto.componen
 
 const routes: Routes = [
 {
-  path: '',
+  path: 'index',
   component: IndexComponent
 },
 {
