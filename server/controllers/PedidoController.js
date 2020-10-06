@@ -16,6 +16,10 @@ class PedidoController {
         res.status(201).json(await Pedidos.findOne({"numeromesa": req.params.numeroMesa, "status": "ocupada" }));
     }
 
+    async GetAll(req, res){
+        res.status(201).json(await Pedidos.find({}));
+    }
+
     async Update(req,res){
         res.status(200).json(await Pedidos.updateOne(req.body));
     }

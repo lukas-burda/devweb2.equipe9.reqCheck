@@ -15,6 +15,46 @@ Content-Type: application/json
 }
 
 ###
+POST http://localhost:9090/produto
+Content-Type: application/json
+
+{
+    "codigo": "002",
+    "nome": "Coca-Cola",
+    "valor": 4.2
+}
+
+###
+POST http://localhost:9090/produto
+Content-Type: application/json
+
+{
+    "codigo": "003",
+    "nome": "Fanta Laranja",
+    "valor": 4.2
+}
+
+###
+POST http://localhost:9090/produto
+Content-Type: application/json
+
+{
+    "codigo": "004",
+    "nome": "Suco de maracujá",
+    "valor": 4.2
+}
+
+###
+POST http://localhost:9090/produto
+Content-Type: application/json
+
+{
+    "codigo": "005",
+    "nome": "Água mineral",
+    "valor": 4.2
+}
+
+###
 PUT http://localhost:9090/produto
 Content-Type: application/json
 

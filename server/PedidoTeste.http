@@ -2,6 +2,9 @@
 GET http://localhost:9090/pedido/01
 
 ###
+GET http://localhost:9090/pedido
+
+###
 POST http://localhost:9090/pedido
 Content-Type: application/json
 
