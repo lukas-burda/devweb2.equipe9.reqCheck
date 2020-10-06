@@ -1,8 +1,7 @@
 
 <div class="container">
-    <h2>Lista de produtos cadastrados</h2>
-    <p>Essa é a lista de produtos cadastrados no sistema:</p>            
-    <table class="table table-hover">
+    <h2>PRODUTOS</h2>          
+    <table class="table table-hover m-5">
       
         <tr>
           <th>Código do Produto</th>
@@ -11,17 +10,18 @@
         </tr>
       
       <tbody>
+       <td> <input type=text placeholder="codigo prod" name=""></td>
+       <td> <input type=text placeholder="nome prod" name=""></td>
+       <td> <input type=text placeholder="valor prod" name=""></td>
+       <td> <a class="btn btn-primary container col-8">Salvar</a>  </td>
         <tr *ngFor="let produto of produtos">
           
           <td>{{produto.codigo}}</td>
           <td>{{produto.nome}}</td>
           <td>{{produto.valor}}</td>
-          
-          
-          <td><button class="btn btn-danger" (click)="delete(produto.codigo)">Excluir</button></td>
-          <td><a class="btn btn-primary" href="lista/update/{{produto.codigo}}">Alterar</a></td>
 
-
+          <a class="btn btn-primary m-2" href="lista/update/{{produto.codigo}}">Alterar</a>
+          <button class="btn btn-danger" (click)="delete(produto.codigo)">Excluir</button>
 
         </tr>
         

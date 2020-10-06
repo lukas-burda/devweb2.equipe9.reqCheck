@@ -9,7 +9,6 @@ import { ListProdutoComponent } from './views/list-produto/list-produto.componen
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListPedidoComponent } from './views/list-pedido/list-pedido.component';
-import { CreateProdutoComponent } from './views/create-produto/create-produto.component';
 import { CreatePedidoComponent } from './views/create-pedido/create-pedido.component';
 import { UpdateProdutoComponent } from './views/update-produto/update-produto.component';
 
@@ -19,7 +18,6 @@ import { UpdateProdutoComponent } from './views/update-produto/update-produto.co
     IndexComponent,
     ListProdutoComponent,
     ListPedidoComponent,
-    CreateProdutoComponent,
     CreatePedidoComponent,
     UpdateProdutoComponent
   ],

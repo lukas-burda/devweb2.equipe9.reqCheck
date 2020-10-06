@@ -20,8 +20,6 @@ export class ProdutoService {
     return this.http.post<Produto>(this.baseURL, produto);
   }
 
-
-
   delete(codigo: String): Observable<Produto>{
     return this.http.delete<Produto>(this.baseURL+'/delete/'+codigo);
   }

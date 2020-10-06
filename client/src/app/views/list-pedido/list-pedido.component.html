@@ -1,33 +1,26 @@
 
 <div class="container">
     <h2>Lista de Pedidos</h2>
-    <p>Essa é a lista de pedidos:</p>            
+    <a class="btn btn-primary container col-2 mt-5" href="../pedido/create">Criar Pedido</a>
+    <h5 class="mt-3">Essa é a lista de pedidos:</h5>            
     <table class="table table-hover">
       
         <tr>
           <th>Número da mesa</th>
           <th>Status do pedido</th>
-          <th>Valor total</th>
+          <th>SubTotal</th>
+          <th></th>
         </tr>
       
       <tbody>
-        <tr>
-          <td>001</td>
-          <td>LIVRE</td>
-          <td>55.50</td>
-          <td><a class="btn btn-primary" routerLink="produto/alterar/{{1234}}">Detalhes</a></td>
-        </tr>
-        <tr>
-          <td>002</td>
-          <td>OCUPADA</td>
-          <td>45.54</td>
-          <td><a class="btn btn-primary" routerLink="produto/alterar/{{1234}}">Detalhes</a></td>
-        </tr>
-        <tr>
-          <td>003</td>
-          <td>FINALIZADA</td>
-          <td>99.90</td>
-          <td><a class="btn btn-primary" routerLink="produto/alterar/{{1234}}">Detalhes</a></td>
+        <tr *ngFor="let pedido of pedidos">
+          <td>{{pedido.numeromesa}}</td>
+          <td>{{pedido.status}}</td>
+          <td>{{pedido.subtotal}}</td>
+          <td>
+            <a class="btn btn-primary m-2" routerLink="pedido/alterar/{{1234}}">Alterar</a>
+            <button class="btn btn-success" (click)="finalizar(pedido.numeromesa)">Finalizar</button>
+          </td>
         </tr>
       </tbody>
     </table>

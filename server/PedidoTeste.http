@@ -9,7 +9,7 @@ POST http://localhost:9090/pedido
 Content-Type: application/json
 
 {
-    "numeromesa": "1",
+    "numeromesa": "326",
     "status": "ocupada",
     "produtos":
     [
