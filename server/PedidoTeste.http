@@ -1,5 +1,5 @@
 ###
-GET http://localhost:9090/pedido/01
+GET http://localhost:9090/pedido/3
 
 ###
 GET http://localhost:9090/pedido

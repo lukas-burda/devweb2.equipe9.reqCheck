@@ -6,6 +6,9 @@ const Pedido = new mongoose.Schema({
         type: Number,
         required: [true, "O número da mesa deve ser informada."]
     },
+    subtotal: {
+        type: Number
+    },
     status: {
         type: String,
         enum: ["LIVRE", "OCUPADA", "FINALIZADA"],

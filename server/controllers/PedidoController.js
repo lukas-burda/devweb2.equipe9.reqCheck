@@ -5,6 +5,11 @@ class PedidoController {
     async Insert(req, res){
         var verificacao = await Pedidos.findOne({ "numeromesa": req.body.numeromesa, "status": "ocupada" });
         if (verificacao == null || verificacao.status == "FINALIZADA"){
+            var subtotal = 0;
+            req.body.produtos.forEach(element => {
+                subtotal += element.valor * element.quantidade;
+            });
+            req.body.subtotal = subtotal;
             res.status(200).json(await Pedidos.create(req.body));
         }
         else{
@@ -21,19 +26,30 @@ class PedidoController {
     }
 
     async Update(req,res){
+        var subtotal = 0;
+        req.body.produtos.forEach(element => {
+            subtotal += element.valor * element.quantidade;
+        });
+        req.body.subtotal = subtotal;
         res.status(200).json(await Pedidos.updateOne(req.body));
     }
 
     async Finalizar(req, res){
         var pedido = await Pedidos.findOne({ "numeromesa": req.params.numeroMesa, "status": "ocupada" });
-        pedido.status = "FINALIZADA";
         var total = 0;
-        pedido.produtos.forEach(element => {
-            var aux = element.valor * element.quantidade;
-            total += aux;
-        });
-        await Pedidos.updateOne(pedido);
-        res.status(200).json({ "total": `${total}` });
+        if (pedido != null){
+            pedido.produtos.forEach(element => {
+                var aux = element.valor * element.quantidade;
+                total += aux;
+            });
+        
+            var pedido = await Pedidos.updateOne({ "numeromesa": req.params.numeroMesa, "status": "ocupada" }, { "status": "finalizada"});
+            
+            res.status(200).json({ "total": `${total}` });
+        }
+        else{
+            res.status(404).json({ "Mensagem": "Pedido não encontrado." })
+        }
     }
 }
 
