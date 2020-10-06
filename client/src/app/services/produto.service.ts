@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Produto } from '../models/Produto';
@@ -8,7 +8,7 @@ import { Produto } from '../models/Produto';
 })
 export class ProdutoService {
 
-  baseURL = 'http://localhost:1234';
+  baseURL = 'http://localhost:9090/produto';
 
   constructor(private http: HttpClient) { }
 
@@ -18,8 +18,13 @@ export class ProdutoService {
 
   create(produto: Produto): Observable<Produto>{
     return this.http.post<Produto>(this.baseURL, produto);
-
-
   }
+
+
+
+  delete(codigo: String): Observable<Produto>{
+    return this.http.delete<Produto>(this.baseURL+'/delete/'+codigo);
+  }
+
 
 }
