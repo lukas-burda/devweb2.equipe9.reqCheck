@@ -23,7 +23,7 @@ class ProdutoController {
     }
 
     async deleteProduto(req, res){
-        res.status(200).json(await Produtos.findOneAndDelete(req.params.codigo));
+        res.status(200).json(await Produtos.findOneAndDelete( {"codigo": req.params.codigo} ));
     }
 }
 

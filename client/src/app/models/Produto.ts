@@ -3,4 +3,5 @@ export class Produto{
     codigo: string;
     nome: string;
     valor: Number;
+    quantidade: Number;
 }

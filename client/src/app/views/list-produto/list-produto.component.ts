@@ -16,9 +16,14 @@ export class ListProdutoComponent implements OnInit {
 
   ngOnInit(): void {
     this.ProdutoService.list().subscribe((lista)=>{
-      console.log(lista);
       this.produtos = lista;
 
+    });
+  }
+
+  delete(codigo: String): void{
+    this.ProdutoService.delete(codigo).subscribe(()=>{
+      window.location.reload();
     });
   }
 
