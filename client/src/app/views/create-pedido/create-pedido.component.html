@@ -1,4 +1,4 @@
-<h2>Cadastrar Pedido</h2>
+<h2 class="align-items-lg-center">CADASTRAR PEDIDO</h2>
 
 <form class="form-horizontal">
     <fieldset>
@@ -18,17 +18,9 @@
       <input name="codigo" type="text" placeholder="Codigo" class="form-control input-md" [(ngModel)]="pedido.produtos[0].codigo">
       <input name="valor" type="number" placeholder="Valor" class="form-control input-md" [(ngModel)]="pedido.produtos[0].valor">
       <input name="quantidade" type="number" placeholder="Quantidade" class="form-control input-md" [(ngModel)]="pedido.produtos[0].quantidade">
-      </div>
-      
+      <button class="btn btn-success container mt-3" (click)="create()">Criar pedido</button>
     </div>
-    <button class="btn btn-primary mt-3" (click)="create()">Criar pedido</button>
-
-    <div class="form-group">
-        <label class="col-md-4 control-label" for="cadastrar-btn"></label>
-        <div class="col-md-4">
-          <!--<button id="cadastrar-btn" name="cadastrar-btn" class="btn btn-primary">Cadastrar</button>-->
-        </div>
-      </div>
+    </div>
     
     </fieldset>
 </form>
