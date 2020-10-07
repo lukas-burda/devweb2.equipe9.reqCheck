@@ -19,7 +19,9 @@ class ProdutoController {
     }
 
     async alterarProduto(req, res){
-        res.status(200).json(await Produtos.updateOne(req.body));
+        res.status(200)
+        .json(await Produtos
+            .updateOne({"codigo": req.body.codigo}, req.body));
     }
 
     async deleteProduto(req, res){
