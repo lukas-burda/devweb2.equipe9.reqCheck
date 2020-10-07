@@ -10,6 +10,12 @@ import { ProdutoService} from 'src/app/services/produto.service';
 })
 export class ListProdutoComponent implements OnInit {
 
+  produto: Produto = {
+    codigo: "",
+    nome: "",
+    valor: 0,
+    quantidade: 0
+    }
   produtos: Produto[] = [];
 
   constructor(private router:Router, private ProdutoService: ProdutoService) { }
@@ -27,4 +33,15 @@ export class ListProdutoComponent implements OnInit {
     });
   }
 
+  create(): void{
+    this.ProdutoService.create(this.produto).subscribe(()=>{
+      window.location.reload();
+  });
+  }
+
+  update(): void{
+    this.ProdutoService.update().subscribe(()=>{
+      window.location.reload();
+    })
+  }
 }

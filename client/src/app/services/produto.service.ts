@@ -24,5 +24,9 @@ export class ProdutoService {
     return this.http.delete<Produto>(this.baseURL+'/delete/'+codigo);
   }
 
+ /* update(produto: Produto) Observable<Produto>{
+    return this.http.update<Produto>(this.baseURL, produto)
+  } */
+
 
 }

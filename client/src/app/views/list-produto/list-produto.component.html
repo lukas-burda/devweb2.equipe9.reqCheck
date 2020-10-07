@@ -1,4 +1,3 @@
-
 <div class="container">
     <h2>PRODUTOS</h2>          
     <table class="table table-hover m-5">
@@ -10,17 +9,17 @@
         </tr>
       
       <tbody>
-       <td> <input type=text placeholder="codigo prod" name=""></td>
-       <td> <input type=text placeholder="nome prod" name=""></td>
-       <td> <input type=text placeholder="valor prod" name=""></td>
-       <td> <a class="btn btn-primary container col-8">Salvar</a>  </td>
+       <td> <input type="text" placeholder="codigo produto" name="codigo" [(ngModel)]="produto.codigo"></td>
+       <td> <input type="text" placeholder="nome produto" name="nome" [(ngModel)]="produto.nome"></td>
+       <td> <input type="number" placeholder="valor produto" name="valor" [(ngModel)]="produto.valor"></td>
+       <td> <button class="btn btn-primary container col-8" (click)="create()">Salvar</button> </td>
+       <td> <button class="btn btn-primary container col-8" (click)="update()">Atualizar</button> </td>
         <tr *ngFor="let produto of produtos">
           
           <td>{{produto.codigo}}</td>
           <td>{{produto.nome}}</td>
           <td>{{produto.valor}}</td>
 
-          <a class="btn btn-primary m-2" href="lista/update/{{produto.codigo}}">Alterar</a>
           <button class="btn btn-danger" (click)="delete(produto.codigo)">Excluir</button>
 
         </tr>

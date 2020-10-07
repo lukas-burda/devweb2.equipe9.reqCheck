@@ -10,7 +10,6 @@ import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListPedidoComponent } from './views/list-pedido/list-pedido.component';
 import { CreatePedidoComponent } from './views/create-pedido/create-pedido.component';
-import { UpdateProdutoComponent } from './views/update-produto/update-produto.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +18,6 @@ import { UpdateProdutoComponent } from './views/update-produto/update-produto.co
     ListProdutoComponent,
     ListPedidoComponent,
     CreatePedidoComponent,
-    UpdateProdutoComponent
   ],
   imports: [
     BrowserModule,
