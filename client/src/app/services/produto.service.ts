@@ -1,6 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Pedido } from '../models/Pedido';
 import { Produto } from '../models/Produto';
 
 @Injectable({
@@ -24,9 +25,9 @@ export class ProdutoService {
     return this.http.delete<Produto>(this.baseURL+'/delete/'+codigo);
   }
 
- /* update(produto: Produto) Observable<Produto>{
-    return this.http.update<Produto>(this.baseURL, produto)
-  } */
+  update(produto: Produto): Observable<Produto>{
+    return this.http.put<Produto>(this.baseURL, produto);
+  } 
 
 
 }

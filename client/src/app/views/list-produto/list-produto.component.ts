@@ -40,7 +40,7 @@ export class ListProdutoComponent implements OnInit {
   }
 
   update(): void{
-    this.ProdutoService.update().subscribe(()=>{
+    this.ProdutoService.update(this.produto).subscribe(()=>{
       window.location.reload();
     })
   }

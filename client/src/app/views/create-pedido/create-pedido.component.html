@@ -6,24 +6,27 @@
     <div class="form-group">
       <label class="col-md-4 control-label" for="textinput">Mesa</label>  
       <div class="col-md-4">
-      <input id="textinput" name="textinput" type="text" placeholder="numero da mesa" class="form-control input-md" required="">
+      <input id="textinput" name="numeromesa" type="text" placeholder="numero da mesa" class="form-control input-md" [(ngModel)]="pedido.numeromesa">
         
       </div>
     </div>
 
     <div class="form-group">
-      <label class="col-md-4 control-label" for="textinput">Produto</label>  
+      <label class="col-md-4 control-label" for="textinput">Produto:</label>
       <div class="col-md-4">
-      <input id="textinput" name="textinput" type="text" placeholder="codigo" class="form-control input-md" required="">
-      <input id="textinput" name="textinput" type="number" placeholder="quantidade" class="form-control input-md" required="">
-        
+      <input name="nome" type="text" placeholder="Nome" class="form-control input-md" [(ngModel)]="pedido.produtos[0].nome">
+      <input name="codigo" type="text" placeholder="Codigo" class="form-control input-md" [(ngModel)]="pedido.produtos[0].codigo">
+      <input name="valor" type="number" placeholder="Valor" class="form-control input-md" [(ngModel)]="pedido.produtos[0].valor">
+      <input name="quantidade" type="number" placeholder="Quantidade" class="form-control input-md" [(ngModel)]="pedido.produtos[0].quantidade">
       </div>
+      
     </div>
+    <button class="btn btn-primary mt-3" (click)="create()">Criar pedido</button>
 
     <div class="form-group">
         <label class="col-md-4 control-label" for="cadastrar-btn"></label>
         <div class="col-md-4">
-          <button id="cadastrar-btn" name="cadastrar-btn" class="btn btn-primary">Cadastrar</button>
+          <!--<button id="cadastrar-btn" name="cadastrar-btn" class="btn btn-primary">Cadastrar</button>-->
         </div>
       </div>
     
