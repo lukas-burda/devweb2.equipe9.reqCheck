@@ -9,7 +9,7 @@ POST http://localhost:9090/pedido
 Content-Type: application/json
 
 {
-    "numeromesa": "326",
+    "numeromesa": "1",
     "status": "ocupada",
     "produtos":
     [
@@ -41,13 +41,13 @@ Content-Type: application/json
             "codigo": "001",
             "nome": "Heineken",
             "valor": 4.2,
-            "quantidade": 2
+            "quantidade": 1
         },
         {
             "codigo": "003",
             "nome": "Coca-Cola",
             "valor": 1.2,
-            "quantidade": 5
+            "quantidade": 32
         }
     ]
 }

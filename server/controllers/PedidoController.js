@@ -31,11 +31,16 @@ class PedidoController {
             subtotal += element.valor * element.quantidade;
         });
         req.body.subtotal = subtotal;
-        res.status(200).json(await Pedidos.updateOne(req.body));
+        var pedido = await Pedidos.findOne({ "numeromesa": req.body.numeromesa, "status": "ocupada" });
+        console.log(req.body);
+        if (pedido != null){
+            res.status(200).json(await Pedidos.updateOne({ "numeromesa": req.body.numeromesa, "status": "ocupada" }, req.body));
+        }
     }
 
     async Finalizar(req, res){
         var pedido = await Pedidos.findOne({ "numeromesa": req.params.numeroMesa, "status": "ocupada" });
+        console.log(pedido);
         var total = 0;
         if (pedido != null){
             pedido.produtos.forEach(element => {
