@@ -29,5 +29,8 @@ export class ProdutoService {
     return this.http.put<Produto>(this.baseURL, produto);
   } 
 
+ getByCod(codigo: String){
+    return this.http.get<Produto>(this.baseURL+'/'+codigo);
 
+  }
 }

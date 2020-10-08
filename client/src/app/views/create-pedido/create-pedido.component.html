@@ -1,27 +1,51 @@
-<h2 class="align-items-lg-center">CADASTRAR PEDIDO</h2>
 
-<form class="form-horizontal">
-    <fieldset>
-    
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="textinput">Mesa</label>  
-      <div class="col-md-4">
-      <input id="textinput" name="numeromesa" type="text" placeholder="numero da mesa" class="form-control input-md" [(ngModel)]="pedido.numeromesa">
+<div class="row mt-5">
+  <div class="col-6">
+    <div class="text-center col-md-10">
+      <h2 class=" text-center" >CADASTRAR PEDIDO</h2>
+    </div>
+    <form class="form-horizontal">
+        <fieldset>
         
-      </div>
-    </div>
+        <div class="form-group">
+          <label class="col-md-8 control-label" for="textinput">Mesa</label>  
+          <div class="col-md-8">
+          <input id="textinput" name="numeromesa" type="text" placeholder="numero da mesa" class="form-control input-md" [(ngModel)]="pedido.numeromesa">
+            
+          </div>
+        </div>
 
-    <div class="form-group">
-      <label class="col-md-4 control-label" for="textinput">Produto:</label>
-      <div class="col-md-4">
-      <input name="nome" type="text" placeholder="Nome" class="form-control input-md" [(ngModel)]="pedido.produtos[0].nome">
-      <input name="codigo" type="text" placeholder="Codigo" class="form-control input-md" [(ngModel)]="pedido.produtos[0].codigo">
-      <input name="valor" type="number" placeholder="Valor" class="form-control input-md" [(ngModel)]="pedido.produtos[0].valor">
-      <input name="quantidade" type="number" placeholder="Quantidade" class="form-control input-md" [(ngModel)]="pedido.produtos[0].quantidade">
-      <button class="btn btn-info container mt-3">Adicionar Produto</button>
-      <button class="btn btn-success container mt-3" (click)="create()">Criar pedido</button>
-    </div>
-    </div>
-    
-    </fieldset>
-</form>
+        <div class="form-group">
+          <label class="col-md-8 control-label" for="textinput">Produto:</label>
+          <div class="col-md-8">
+            <input name="codigo" type="text" placeholder="Codigo" class="form-control input-md" [(ngModel)]="pedido.produtos[0].codigo">
+            <input name="quantidade" type="number" placeholder="Quantidade" class="form-control input-md" [(ngModel)]="pedido.produtos[0].quantidade">
+            <button class="btn btn-info container mt-3" (click)="getByCod(pedido.produtos[0].codigo, pedido.produtos[0].quantidade)">Adicionar Produto</button>
+            <button class="btn btn-success container mt-3" (click)="create()">Criar pedido</button>
+          </div>
+        </div>
+      
+        </fieldset>
+    </form>
+  </div>
+
+  <div class="col-5">
+    <h2> Produtos do Pedido Atual</h2>
+      <table class="table table-hover">
+        <th>Codigo</th>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Valor</th>
+      
+      <tbody *ngFor = "let produto of produtos">
+        <tr>
+          <td>{{produto.codigo}}</td>
+          <td>{{produto.nome}}</td>
+          <td>{{produto.quantidade}}</td>
+          <td>{{produto.valor}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-danger container m-10" (click)="remByCod(produto.codigo)">Remover Ultimo Produto</button>
+  </div>
+</div>
