@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>PRODUTOS</h2>          
+    <h2 >PRODUTOS</h2>          
     <table class="table table-hover mt-4">
       
         <tr>
@@ -9,11 +9,11 @@
         </tr>
       
       <tbody>
-        <td> <input type="text" placeholder="codigo produto" name="codigo" [(ngModel)]="produto.codigo"></td>
-        <td> <input type="text" placeholder="nome produto" name="nome" [(ngModel)]="produto.nome"></td>
-        <td> <input type="number" placeholder="valor produto" name="valor" [(ngModel)]="produto.valor"></td>
-        <td> <button class="btn btn-primary ml-3" (click)="create()">Salvar</button>
-          <button class="btn btn-success m-lg-2" (click)="update()">Atualizar</button>
+        <td> <input class="form-control input-md" type="text" placeholder="codigo produto" name="codigo" [(ngModel)]="produto.codigo"></td>
+        <td> <input class="form-control input-md" type="text" placeholder="nome produto" name="nome" [(ngModel)]="produto.nome"></td>
+        <td> <input class="form-control input-md" type="number" placeholder="valor produto" name="valor" [(ngModel)]="produto.valor"></td>
+        <td> <button class="btn btn-success ml-3" (click)="create()">Salvar</button>
+          <button class="btn btn-info m-lg-2" (click)="update()">Atualizar</button>
         </td>
         <tr *ngFor="let produto of produtos">
           

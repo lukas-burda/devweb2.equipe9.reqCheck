@@ -24,6 +24,12 @@ Content-Type: application/json
             "nome": "Coca-Cola",
             "valor": 1.2,
             "quantidade": 5
+        },
+        {
+            "codigo": "008",
+            "nome": "MeuCodigo",
+            "valor": 12,
+            "quantidade": 5
         }
     ]
 }

@@ -18,6 +18,7 @@
       <input name="codigo" type="text" placeholder="Codigo" class="form-control input-md" [(ngModel)]="pedido.produtos[0].codigo">
       <input name="valor" type="number" placeholder="Valor" class="form-control input-md" [(ngModel)]="pedido.produtos[0].valor">
       <input name="quantidade" type="number" placeholder="Quantidade" class="form-control input-md" [(ngModel)]="pedido.produtos[0].quantidade">
+      <button class="btn btn-info container mt-3">Adicionar Produto</button>
       <button class="btn btn-success container mt-3" (click)="create()">Criar pedido</button>
     </div>
     </div>

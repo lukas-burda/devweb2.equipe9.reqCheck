@@ -1,26 +1,38 @@
-
 <div class="container">
-    <h2>PEDIDOS</h2>
-    <a class="btn btn-primary container col-2 mt-5" href="../pedido/create">Criar Pedido</a>           
-    <table class="table table-hover">
-      
-        <tr>
-          <th>Número da mesa</th>
-          <th>Status do pedido</th>
-          <th>SubTotal</th>
-          <th></th>
-        </tr>
-      
-      <tbody>
-        <tr *ngFor="let pedido of pedidos">
-          <td>{{pedido.numeromesa}}</td>
-          <td>{{pedido.status}}</td>
-          <td>{{pedido.subtotal}}</td>
-          <td>
-            <a class="btn btn-primary m-2" routerLink="pedido/alterar/{{1234}}">Alterar</a>
-            <button class="btn btn-success" (click)="finalizar(pedido.numeromesa)">Finalizar</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h2>PEDIDOS</h2>
+  <a class="btn btn-primary container col-2 mt-5" href="../pedido/create">Criar Pedido</a>           
+  <table class="table table-hover">
+    
+      <tr>
+        <th>Mesa</th>
+        <th>Status </th>
+        <th>Produtos</th>
+        <th>SubTotal</th>
+        
+      </tr>
+    
+    <tbody>
+      <tr *ngFor="let pedido of pedidos">
+        <td>{{pedido.numeromesa}}</td>
+        <td>{{pedido.status}}</td>
+        <table>
+          <tr>
+            <th>Nome</th>
+            <th>Quantidade</th>
+            <th>Valor</th>
+          </tr>
+          <tbody *ngFor= "let produto of pedido.produtos">
+              <td>{{produto.nome}}</td>
+              <td>{{produto.quantidade}}</td>
+              <td>{{produto.valor}}</td>
+        </tbody>
+        </table>
+        <td>{{pedido.subtotal}}</td>
+        <td>
+          <a class="btn btn-primary m-2" routerLink="pedido/alterar/{{1234}}">Alterar</a>
+          <button class="btn btn-success" (click)="finalizar(pedido.numeromesa)">Finalizar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
