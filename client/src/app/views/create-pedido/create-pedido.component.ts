@@ -44,7 +44,7 @@ export class CreatePedidoComponent implements OnInit {
     this.pedido.produtos = this.produtos;
     this.PedidoService.create(this.pedido).subscribe(()=>{
     });
-    window.location.href = "localhost:9090/pedido/lista";
+    window.location.href = "/pedido/lista";
   }
 
   getByCod(codigo: String, quant: Number): void{
@@ -52,6 +52,8 @@ export class CreatePedidoComponent implements OnInit {
     var x = this.ProdutoService.getByCod(codigo).subscribe((prod)=>{
       prod.quantidade = quant;
       this.produtos.push(prod);
+      var VarQuant = prod.quantidade;
+      var VarValor = prod.valor;
     });
     
   }
