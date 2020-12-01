@@ -2,7 +2,7 @@
 <div class="row mt-5">
   <div class="col-6">
     <div class="text-center col-md-10">
-      <h2 class=" text-center" >CADASTRAR PEDIDO</h2>
+      <h2 class=" text-center" >Pedido</h2>
     </div>
     <form class="form-horizontal">
         <fieldset>
@@ -21,7 +21,7 @@
             <input name="codigo" type="text" placeholder="Codigo" class="form-control input-md" [(ngModel)]="pedido.produtos[0].codigo">
             <input name="quantidade" type="number" placeholder="Quantidade" class="form-control input-md" [(ngModel)]="pedido.produtos[0].quantidade">
             <button class="btn btn-info container mt-3" (click)="getByCod(pedido.produtos[0].codigo, pedido.produtos[0].quantidade)">Adicionar Produto</button>
-            <button class="btn btn-success container mt-3" (click)="create()">Criar pedido</button>
+            <button class="btn btn-success container mt-3" (click)="create()">Salvar Pedido</button>
           </div>
         </div>
       
@@ -36,17 +36,21 @@
         <th>Nome</th>
         <th>Quantidade</th>
         <th>Valor</th>
+        <th></th>
       
       <tbody *ngFor = "let produto of produtos">
         <tr>
           <td>{{produto.codigo}}</td>
           <td>{{produto.nome}}</td>
           <td>{{produto.quantidade}}</td>
-          <td>{{produto.valor}}</td>
+          <td>{{produto.valor | currency: "BRL"}}</td>
+          <td><div class="example-button-container">
+            <button mat-mini-fab color="warn" (click)="remByCod(produto.codigo)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div></td>
         </tr>
       </tbody>
-      
     </table>
-    <button class="btn btn-danger container m-10" (click)="remByCod()">Remover Ultimo Produto</button>
   </div>
 </div>

@@ -25,4 +25,13 @@ export class PedidoService {
         return this.http.put<Pedido>(this.baseURL+'/finalizar/'+pedido, null);
     }
 
+    atualizar(pedido: Pedido): Observable<Pedido>{
+        console.log(pedido);
+        return this.http.put<Pedido>(this.baseURL, pedido);
+    }
+
+    getByMesa(mesa: String): Observable<Pedido> {
+        return this.http.get<Pedido>(this.baseURL+"/"+mesa);
+    }
+
     }

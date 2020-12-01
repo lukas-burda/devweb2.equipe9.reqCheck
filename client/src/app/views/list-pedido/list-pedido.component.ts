@@ -14,6 +14,8 @@ import { PedidoService } from '../../services/pedido.service'
 
 export class ListPedidoComponent implements OnInit {
 
+  panelOpenState = false;
+
   pedidos: Pedido[] = [];
   produto: Produto = {
     codigo: "",
@@ -41,4 +43,7 @@ export class ListPedidoComponent implements OnInit {
     });
   }
 
+  atualizar():void{
+    //this.router.navigate(['pedido/update']);
+  }
 }

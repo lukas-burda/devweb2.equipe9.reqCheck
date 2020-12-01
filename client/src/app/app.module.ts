@@ -11,20 +11,33 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ListPedidoComponent } from './views/list-pedido/list-pedido.component';
 import { CreatePedidoComponent } from './views/create-pedido/create-pedido.component';
 
+//Material
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatListModule} from '@angular/material/list';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     ListProdutoComponent,
     ListPedidoComponent,
-    CreatePedidoComponent,
+    CreatePedidoComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatListModule,
+    MatExpansionModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

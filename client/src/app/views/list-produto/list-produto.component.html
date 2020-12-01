@@ -19,7 +19,7 @@
           
           <td>{{produto.codigo}}</td>
           <td>{{produto.nome}}</td>
-          <td>{{produto.valor}}</td>
+          <td>{{produto.valor | currency: "BRL"}}</td>
 
           <button class="btn btn-danger conainter ml-4 col-6" (click)="delete(produto.codigo)">Excluir</button>
 

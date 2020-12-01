@@ -7,7 +7,7 @@ import { CreatePedidoComponent } from './views/create-pedido/create-pedido.compo
 
 const routes: Routes = [
 {
-  path: 'index',
+  path:'',
   component: IndexComponent
 },
 {
@@ -20,6 +20,10 @@ const routes: Routes = [
 },
 {
   path: 'pedido/create',
+  component: CreatePedidoComponent
+},
+{
+  path: 'pedido/create/:numeromesa',
   component: CreatePedidoComponent
 }
 ];

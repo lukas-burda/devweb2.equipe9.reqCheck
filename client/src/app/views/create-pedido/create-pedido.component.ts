@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from '@angular/router';
 import { Produto } from './../../models/Produto';
 import { Component, OnInit } from '@angular/core';
 import { Pedido } from 'src/app/models/Pedido';
@@ -35,31 +36,59 @@ export class CreatePedidoComponent implements OnInit {
   
   produtos: Produto[] = [];
 
-  constructor(private PedidoService: PedidoService, private ProdutoService: ProdutoService) { }
+  constructor(
+    private PedidoService: PedidoService, 
+    private ProdutoService: ProdutoService,
+    private router: Router,
+    private route: ActivatedRoute
+    ) { }
 
   ngOnInit(): void {
+    let numeromesa = this.route.snapshot.paramMap.get("numeromesa");
+    if (numeromesa !== null) {
+      this.PedidoService.getByMesa(numeromesa).subscribe((mesa) => {
+        this.pedido.numeromesa = mesa.numeromesa;
+        this.produtos = mesa.produtos;
+        this.pedido.subtotal = mesa.subtotal;
+        this.pedido.status = 'OCUPADA';
+      });
+    }
+
   }
 
   create(): void{
     this.pedido.produtos = this.produtos;
-    this.PedidoService.create(this.pedido).subscribe(()=>{
-    });
+    if(this.pedido.numeromesa != null) {
+      this.PedidoService.atualizar(this.pedido).subscribe(()=>{
+      });
+    } else {
+      this.PedidoService.create(this.pedido).subscribe(()=>{
+      });
+    }
+    
     window.location.href = "/pedido/lista";
   }
 
-  getByCod(codigo: String, quant: Number): void{
-    
+  getByCod(codigo: String, quant: number): void{
+
+
     var x = this.ProdutoService.getByCod(codigo).subscribe((prod)=>{
-      prod.quantidade = quant;
-      this.produtos.push(prod);
-      var VarQuant = prod.quantidade;
-      var VarValor = prod.valor;
+      let y = this.produtos.filter(produto => produto.codigo == codigo);
+      if( y.length != 0 ) {
+        y[0].quantidade = y[0].quantidade + quant;
+        y[0].valor = y[0].quantidade * prod.valor;
+      } else {
+        prod.quantidade = quant;
+        this.produtos.push(prod);
+        var VarQuant = prod.quantidade;
+        var VarValor = prod.valor;
+      }
     });
     
   }
 
-  remByCod() : void{
-    this.produtos.pop()
+  remByCod(codigo : String) : void{
+    this.produtos = this.produtos.filter(produto => produto.codigo !== codigo);
     
   }
   }

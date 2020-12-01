@@ -8,26 +8,51 @@
         <th>Status </th>
         <th>Produtos</th>
         <th>SubTotal</th>
+        <th></th>   
+        <th></th>   
         
       </tr>
     
     <tbody>
+
       <tr *ngFor="let pedido of pedidos">
         <td>{{pedido.numeromesa}}</td>
         <td>{{pedido.status}}</td>
-        <table>
-          <tr>
-            <th>Nome</th>
-            <th>Quantidade</th>
-            <th>Valor</th>
-          </tr>
-          <tbody *ngFor= "let produto of pedido.produtos">
-              <td>{{produto.nome}}</td>
-              <td>{{produto.quantidade}}</td>
-              <td>{{produto.valor}}</td>
-        </tbody>
-        </table>
-        <td>{{pedido.subtotal}}</td>
+          <mat-accordion>
+            <mat-expansion-panel hideToggle>
+              <mat-expansion-panel-header>
+                <mat-panel-title class="is-warning">
+                  Ver 
+                  <span class="material-icons">
+                    expand_more
+                    </span>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <table class="col-12">
+              <tr>
+                <th>Nome</th>
+                <th>Quantidade</th>
+                <th>Valor</th>
+              </tr>
+                <tbody *ngFor= "let produto of pedido.produtos">
+                  <td>{{produto.nome}}</td>
+                  <td>{{produto.quantidade}}</td>
+                  <td>{{produto.valor | currency: "BRL"}}</td>
+                </tbody>
+              </table>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+            </mat-expansion-panel>
+          </mat-accordion>
+        
+        <td>{{pedido.subtotal  | currency: "BRL" }}</td>
+       
+        <td>
+          <div *ngIf="pedido.status === 'OCUPADA'">
+            <a class="btn btn-warning" routerLink="../create/{{pedido.numeromesa}}">Alterar</a>
+        </div>
+        </td>
         <td>
           <button class="btn btn-success" (click)="finalizar(pedido.numeromesa)">Finalizar</button>
         </td>
