@@ -1,30 +1,66 @@
-<div class="container">
-    <h2 >PRODUTOS</h2>          
-    <table class="table table-hover mt-4">
-      
-        <tr>
-          <th>Código do Produto</th>
-          <th>Nome do Produto</th>
-          <th>Valor do Produto</th>
-        </tr>
-      
-      <tbody>
-        <td> <input class="form-control input-md" type="text" placeholder="codigo produto" name="codigo" [(ngModel)]="produto.codigo"></td>
-        <td> <input class="form-control input-md" type="text" placeholder="nome produto" name="nome" [(ngModel)]="produto.nome"></td>
-        <td> <input class="form-control input-md" type="number" placeholder="valor produto" name="valor" [(ngModel)]="produto.valor"></td>
-        <td> <button class="btn btn-success ml-3" (click)="create()">Salvar</button>
-          <button class="btn btn-info m-lg-2" (click)="update()">Atualizar</button>
-        </td>
-        <tr *ngFor="let produto of produtos">
-          
-          <td>{{produto.codigo}}</td>
-          <td>{{produto.nome}}</td>
-          <td>{{produto.valor | currency: "BRL"}}</td>
 
-          <button class="btn btn-danger conainter ml-4 col-6" (click)="delete(produto.codigo)">Excluir</button>
 
-        </tr>
-        
-      </tbody>
-    </table>
-  </div>
+<div style = " display: flex; justify-content: center; margin-top: 2em;" >
+  
+  <mat-card class="card">
+    <div class="titulo">
+      <h1><b>PRODUTOS</b></h1>
+    </div>
+    <mat-form-field class="campo">
+      <mat-label>Código</mat-label>
+      <input matInput placeholder="codigo produto" name="codigo" [(ngModel)]="produto.codigo"/>
+    </mat-form-field>
+    
+    <mat-form-field class="campo">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="nome produto" name="nome" [(ngModel)]="produto.nome" />
+    </mat-form-field>
+
+    <mat-form-field class="campo">
+      <mat-label>Valor</mat-label>
+      <input matInput placeholder="valor produto" name="valor" [(ngModel)]="produto.valor" />
+    </mat-form-field>
+
+      <button mat-mini-fab color="primary" class="botao" (click)="update()">
+        <span class="material-icons"> update </span>
+      </button>
+      <button mat-mini-fab color="accent" class="botao" (click)="create()">
+        <span class="material-icons"> add_circle_outline </span>
+      </button>
+  </mat-card>
+</div>
+
+<div class ="divtable">
+
+  <table class="mat-elevation-z8" mat-table [dataSource]="listaProdutos">
+
+    <ng-container matColumnDef="codigo">
+      <th mat-header-cell *matHeaderCellDef> Código </th>
+      <td mat-cell *matCellDef="let produto"> {{produto.codigo}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let produto"> {{produto.nome}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="valor">
+      <th mat-header-cell *matHeaderCellDef> Valor </th>
+      <td mat-cell *matCellDef="let produto"> {{produto.valor | currency: "BRL"}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="botao">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td  mat-cell *matCellDef="let produto">
+        <button mat-mini-fab color="warn" style="position: relative;" (click)="delete(produto.codigo)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="produtosColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: produtosColumns;"></tr>
+
+  </table>
+
+</div>

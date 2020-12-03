@@ -35,15 +35,13 @@ export class ListPedidoComponent implements OnInit {
     this.ProdutoService.list().subscribe((lista)=>{
       this.produtos = lista;
     });
+
+    console.log(this.pedidos);
   }
 
   finalizar(pedido: String): void{
     this.PedidoService.finalizar(pedido).subscribe(()=>{
       window.location.reload();
     });
-  }
-
-  atualizar():void{
-    //this.router.navigate(['pedido/update']);
   }
 }

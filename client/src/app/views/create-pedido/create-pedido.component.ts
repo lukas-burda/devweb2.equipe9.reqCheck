@@ -14,6 +14,7 @@ import { ProdutoService} from 'src/app/services/produto.service';
 export class CreatePedidoComponent implements OnInit {
 
   pedido: Pedido = {
+    _id: "",
     numeromesa: "",
     subtotal: 0,
     status: "ocupada",
@@ -47,44 +48,48 @@ export class CreatePedidoComponent implements OnInit {
     let numeromesa = this.route.snapshot.paramMap.get("numeromesa");
     if (numeromesa !== null) {
       this.PedidoService.getByMesa(numeromesa).subscribe((mesa) => {
+        console.log(mesa)
         this.pedido.numeromesa = mesa.numeromesa;
         this.produtos = mesa.produtos;
         this.pedido.subtotal = mesa.subtotal;
         this.pedido.status = 'OCUPADA';
+        this.pedido._id = mesa._id;
       });
     }
 
   }
 
   create(): void{
+    console.log(this.pedido)
     this.pedido.produtos = this.produtos;
-    if(this.pedido.numeromesa != null) {
+     if(this.pedido._id != null) {
       this.PedidoService.atualizar(this.pedido).subscribe(()=>{
       });
-    } else {
+     } else {
       this.PedidoService.create(this.pedido).subscribe(()=>{
-      });
-    }
+       });
+     }
     
-    window.location.href = "/pedido/lista";
+      window.location.href = "/pedido/lista";
   }
 
   getByCod(codigo: String, quant: number): void{
 
-
     var x = this.ProdutoService.getByCod(codigo).subscribe((prod)=>{
+      if(this.produtos == null)
+        this.produtos = [];
       let y = this.produtos.filter(produto => produto.codigo == codigo);
       if( y.length != 0 ) {
         y[0].quantidade = y[0].quantidade + quant;
         y[0].valor = y[0].quantidade * prod.valor;
       } else {
         prod.quantidade = quant;
+        prod.valor = quant * prod.valor;
         this.produtos.push(prod);
         var VarQuant = prod.quantidade;
         var VarValor = prod.valor;
       }
     });
-    
   }
 
   remByCod(codigo : String) : void{

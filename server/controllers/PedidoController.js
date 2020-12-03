@@ -7,7 +7,7 @@ class PedidoController {
         if (verificacao == null || verificacao.status == "FINALIZADA"){
             var subtotal = 0;
             req.body.produtos.forEach(element => {
-                subtotal += element.valor * element.quantidade;
+                subtotal += element.valor;
             });
             req.body.subtotal = subtotal;
             res.status(200).json(await Pedidos.create(req.body));
@@ -28,7 +28,7 @@ class PedidoController {
     async Update(req,res){
         var subtotal = 0;
         req.body.produtos.forEach(element => {
-            subtotal += element.valor * element.quantidade;
+            subtotal += element.valor;
         });
         req.body.subtotal = subtotal;
         var pedido = await Pedidos.findOne({ "numeromesa": req.body.numeromesa, "status": "ocupada" });
